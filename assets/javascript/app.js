@@ -10,7 +10,7 @@ $(document).ready(function () {
             question: "Nightmare on elm Street takes place in what town?",
             choice: ["Springwood, Ohio", "Harrisburg, PA", "Springwood, CA", "Petoskey, MI"],
             answer: 0,
-            img: "/assets/images/Freddy-Krueger-wallpaper.jpg"
+            img: "assets/images/Freddy-Krueger-wallpaper.jpg"
         },
         {
             question: "Who did Captain Elliot Spenser Become",
@@ -46,7 +46,7 @@ $(document).ready(function () {
             question: "What is the name of the demon in the Exorcist?",
             choice: ["Pazuzu", "Azazel", "Rimmon", "Paymon"],
             answer: 0,
-            img: ""
+            img: "assets/images/exorcist.jpg"
         },
         {
             question: "In what movie did Annabelle the doll first appear?",
@@ -58,7 +58,7 @@ $(document).ready(function () {
             question: "What is the name of the hotel in the Shining?",
             choice: ["The Mondrian", "The Overlook", "The Victorian", " The Stanley"],
             answer: 1,
-            img: ""
+            img: "assets/images/hotel.jpg"
         },
         {
             question: "What infamous episode of the X'Files was banned from television?",
@@ -74,9 +74,9 @@ $(document).ready(function () {
         },
         {
             question: "Who is the only person to be killed on screen by a Predator, a Terminator and an Alien?",
-            choice: ["Arnold Schwarzenegger", "Sigourney Weaver", "Bill Paxton", "Chuck Norris","Tommy"],
+            choice: ["Arnold Schwarzenegger", "Sigourney Weaver", "Bill Paxton", "Chuck Norris", "Tommy"],
             answer: 2,
-            img: ""
+            img: "assets/images/Billy.jpg"
         }];
 
     var correctCount = 0;
@@ -130,31 +130,19 @@ $(document).ready(function () {
         running = false;
         clearInterval(intervalId);
     }
-    //randomly pick question in array if not already shown
-    //display question and loop though and display possible answers
+
     function displayQuestion() {
-        //generate random index in array
         index = Math.floor(Math.random() * options.length);
         pick = options[index];
 
-        //	if (pick.shown) {
-        //		//recursive to continue to generate new index until one is chosen that has not shown in this game yet
-        //		displayQuestion();
-        //	} else {
-        //		console.log(pick.question);
-        //iterate through answer array and display
         $("#questionblock").html("<h2>" + pick.question + "</h2>");
         for (var i = 0; i < pick.choice.length; i++) {
             var userChoice = $("<div>");
             userChoice.addClass("answerchoice");
             userChoice.html(pick.choice[i]);
-            //assign array position to it so can check answer
             userChoice.attr("data-guessvalue", i);
             $("#answerblock").append(userChoice);
-            //		}
         }
-
-
 
         //click function to select answer and outcomes
         $(".answerchoice").on("click", function () {
@@ -189,7 +177,6 @@ $(document).ready(function () {
             $("#answerblock").empty();
             timer = 20;
 
-            //run the score screen if all questions answered
             if ((wrongCount + correctCount + unanswerCount) === qCount) {
                 $("#questionblock").empty();
                 $("#questionblock").html("<h3>Game Over!  Here's how you did: </h3>");
@@ -204,11 +191,8 @@ $(document).ready(function () {
             } else {
                 runTimer();
                 displayQuestion();
-
             }
         }, 3000);
-
-
     }
 
     $("#reset").on("click", function () {
