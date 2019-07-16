@@ -7,10 +7,10 @@ $(document).ready(function () {
             img: "assets/images/pVorhees.jpeg"
         },
         {
-            question: "Nightmare on elm Street takes place in what town?",
+            question: "Nightmare on Elm Street takes place in what town?",
             choice: ["Springwood, Ohio", "Harrisburg, PA", "Springwood, CA", "Petoskey, MI"],
             answer: 0,
-            img: "assets/images/Freddy-Krueger-wallpaper.jpg"
+            img: "assets/images/Elm-Street.jpg"
         },
         {
             question: "Who did Captain Elliot Spenser Become",
